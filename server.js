@@ -22,12 +22,19 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-//add public routes
+// public routes
 
-app.use("/appointments", require("./routes/api/appointmentHandler"))
-app.use(verify)
+app.use("/register", require("./routes/register"));
+app.use("/signin", require("./routes/signin"));
+app.use("/refresh", require("./routes/refresh"));
+app.use("/signout", require("./routes/logout"));
 
-//add protected routes
+// protected routes
+app.use(verify);
+
+app.use("/patients", require("./routes/api/patientsHandler"));
+app.use("/appointments", require("./routes/api/appointmentHandler"));
+
 
 mongoose.connection.once("open",()=>{
     console.log("connected to MongoDB")
