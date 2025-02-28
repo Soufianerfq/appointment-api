@@ -1,2 +1,9 @@
-Dr cabinet management system backend, a work in progress project, read, write, edit and delete appointments is set up
-next step will be to manage patients medical history and add logins to handle employees access
+Dr cabinet management system backend
+This server handles appointment scheduling and patients medical history 
+the medical history is accessible by the Dr alone, only an Admin role can read and write the patients history
+
+functionality to be added in the future:
+  =>employees management system
+      ==> Days off
+      ==> shifts
+      ==> payrole?
