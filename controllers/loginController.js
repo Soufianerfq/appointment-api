@@ -44,12 +44,18 @@ const handleSignIn = async (req, res) => {
     //   httpOnly: true,
     //   maxAge: 24 * 60 * 60 * 1000,
     // });
-    res.cookie("jwt", refreshToken, {
+    res.cookie("jwt", refreshToken,  {
       httpOnly: true,
       sameSite: "None",
       secure: true,
       maxAge: 24 * 60 * 60 * 1000,
     }); //for production
+    res.cookie("roles", {admin: 5002},  {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    }); 
 
     res.json({ accessToken, roles }); //must be stored in memory (state)
   } else res.status(401).json({ message: "incorrect password" });

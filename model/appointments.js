@@ -8,8 +8,9 @@ const appointmentSchema = new schema({
   id: String,
   number: Number,
   type: String,
+  description: String,
   backgroundColor: String,
   borderColor: String
 });
 
-module.exports = mongoose.model('Appointments', appointmentSchema)
+module.exports = mongoose.model('Appointment', appointmentSchema)

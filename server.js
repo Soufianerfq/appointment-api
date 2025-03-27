@@ -15,7 +15,7 @@ app.use(credentials);
 
 app.use(cors(corsOptions));
 
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
@@ -28,12 +28,12 @@ app.use("/register", require("./routes/register"));
 app.use("/signin", require("./routes/signin"));
 app.use("/refresh", require("./routes/refresh"));
 app.use("/signout", require("./routes/logout"));
+app.use("/appointments", require("./routes/api/appointmentHandler"));
 
 // protected routes
 app.use(verify);
 
 app.use("/patients", require("./routes/api/patientsHandler"));
-app.use("/appointments", require("./routes/api/appointmentHandler"));
 
 
 mongoose.connection.once("open",()=>{
