@@ -6,6 +6,7 @@ const patientSchema = new schema({
     ID : String,
     number: String,
     description: String,
+    date: String,
     history: Array,
 })
 

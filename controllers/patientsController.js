@@ -12,9 +12,9 @@ const newPatient = async (req, res)=>{
 };
 
 const deletePatient = async (req, res)=>{
-    const patientID =  req.body.patientid;
+    const patientID =  req.params.id
     await Patients.findOneAndDelete({_id: patientID});
-    res.json(await Patients.find());
+    res.status(200).json(await Patients.find());
 };
 
 const editHistory = async (req, res)=>{

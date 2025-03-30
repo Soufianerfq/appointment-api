@@ -6,11 +6,10 @@ const ROLES_LIST = require("../../config/roles_list");
 
 
 router
-  .route("/")
-  .get(verifyRoles(ROLES_LIST.Admin), patientsController.getPatients)
-  .post(verifyRoles(ROLES_LIST.Admin), patientsController.newPatient)
-  .put(verifyRoles(ROLES_LIST.Admin), patientsController.editHistory)
-  .delete(verifyRoles(ROLES_LIST.Admin), patientsController.deletePatient);
+  .get("/", verifyRoles(ROLES_LIST.Admin), patientsController.getPatients)
+  .post("/", verifyRoles(ROLES_LIST.Admin), patientsController.newPatient)
+  .put("/:id", verifyRoles(ROLES_LIST.Admin), patientsController.editHistory)
+  .delete("/:id", verifyRoles(ROLES_LIST.Admin), patientsController.deletePatient);
 
 
   module.exports = router
