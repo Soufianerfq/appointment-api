@@ -14,7 +14,7 @@ connectDB();
 app.use(credentials);
 
 app.use(cors({
-    origin: "https://appointment-scheduler-kappa.vercel.app/", 
+    origin: "https://appointment-scheduler-kappa.vercel.app", 
     credentials: true
 }));
 
